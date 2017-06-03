@@ -1,6 +1,8 @@
 import React, { PropTypes } from 'react';
 import { Container, Row, Col } from 'reactstrap';
 
+import FontAwesome from 'react-fontawesome';
+
 import 'bootstrap/dist/css/bootstrap.css';
 import 'font-awesome/css/font-awesome.css';
 
@@ -21,12 +23,9 @@ function NumbersGame() {
 
 function Star() {
     return (
-        <Col>
-            <i className="fa fa-star"></i>
-            <i className="fa fa-star"></i>
-            <i className="fa fa-star"></i>
-            <i className="fa fa-star"></i>
-            <i className="fa fa-star"></i>
+        <Col>            
+            <FontAwesome name="star"></FontAwesome>
+            <FontAwesome name="star"></FontAwesome>
         </Col>
     );
 }
