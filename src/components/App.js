@@ -15,9 +15,7 @@ class App extends Component {
         <p className="App-intro">
           It all starts from <code>src/App.js</code>, have a look and follow the trail...
         </p>
-        <div>
-          <NumbersGame></NumbersGame>
-        </div>
+        <NumbersGame></NumbersGame>
       </div>
     );
   }
