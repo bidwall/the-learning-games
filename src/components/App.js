@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
+import logo from '../logo.svg';
 import './App.css';
+
+import NumbersGame from './NumbersGame/NumbersGame';
 
 class App extends Component {
   render() {
@@ -8,11 +10,14 @@ class App extends Component {
       <div className="App">
         <div className="App-header">
           <img src={logo} className="App-logo" alt="logo" />
-          <h2>Welcome to React</h2>
+          <h2>Welcome to the Learning Games</h2>
         </div>
         <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
+          It all starts from <code>src/App.js</code>, have a look and follow the trail...
         </p>
+        <div>
+          <NumbersGame></NumbersGame>
+        </div>
       </div>
     );
   }
