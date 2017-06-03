@@ -1,4 +1,4 @@
-import React, { PropTypes } from 'react';
+import React from 'react';
 import { Container, Row, Col } from 'reactstrap';
 
 import FontAwesome from 'react-fontawesome';
@@ -44,10 +44,6 @@ function Control() {
             <p>Control</p>
         </Col>
     );
-}
-
-Container.propTypes = {
-  fluid:  PropTypes.bool
 }
 
 export default NumbersGame;
