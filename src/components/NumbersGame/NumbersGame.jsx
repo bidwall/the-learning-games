@@ -1,26 +1,54 @@
-import React from 'react';
+import React, { PropTypes } from 'react';
+import { Container, Row, Col } from 'reactstrap';
+
+import 'bootstrap/dist/css/bootstrap.css';
+import 'font-awesome/css/font-awesome.css';
 
 function NumbersGame() {
     return (
-        <div>
-            <h1>Numbers</h1>
-            <Stars></Stars>
-            <Selection></Selection>
-            <Controls></Controls>
-        </div>        
+        <Container>
+            <br/>
+            <h2>Numbers</h2>
+            <hr />
+            <Row>
+                <Star></Star>
+                <Selection></Selection>
+                <Control></Control>
+            </Row>        
+        </Container>        
     );
 }
 
-function Stars() {
-    return <p>Stars</p>;
+function Star() {
+    return (
+        <Col>
+            <i className="fa fa-star"></i>
+            <i className="fa fa-star"></i>
+            <i className="fa fa-star"></i>
+            <i className="fa fa-star"></i>
+            <i className="fa fa-star"></i>
+        </Col>
+    );
 }
 
 function Selection() {
-    return <p>Selection</p>;
+    return (
+        <Col>
+            <p>Selection</p>
+        </Col>
+    );
 }
 
-function Controls() {
-    return <p>Controls</p>;
+function Control() {
+    return (
+        <Col>
+            <p>Control</p>
+        </Col>
+    );
+}
+
+Container.propTypes = {
+  fluid:  PropTypes.bool
 }
 
 export default NumbersGame;
