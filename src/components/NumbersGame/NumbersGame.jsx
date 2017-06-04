@@ -7,13 +7,15 @@ import 'bootstrap/dist/css/bootstrap.css';
 import 'font-awesome/css/font-awesome.css';
 
 function NumbersGame() {
+    const randomNumberOfStars = 1 + Math.floor(Math.random()*9);
+
     return (
         <Container>
             <br/>
             <h4>Numbers</h4>
             <hr />
             <Row>
-                <Stars numberOfStars={10}></Stars>
+                <Stars numberOfStars={randomNumberOfStars}></Stars>
                 <Selection></Selection>
                 <Control></Control>
             </Row>        
