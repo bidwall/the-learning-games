@@ -10,10 +10,10 @@ function NumbersGame() {
     return (
         <Container>
             <br/>
-            <h2>Numbers</h2>
+            <h4>Numbers</h4>
             <hr />
             <Row>
-                <Star></Star>
+                <Stars numberOfStars={10}></Stars>
                 <Selection></Selection>
                 <Control></Control>
             </Row>        
@@ -21,11 +21,17 @@ function NumbersGame() {
     );
 }
 
-function Star() {
+function Stars(props) {
+    const numberOfStars = props.numberOfStars;
+    
+    let stars = [];    
+    for (let index = 0; index < numberOfStars; index++) {
+        stars.push(<FontAwesome name="star"></FontAwesome>);
+    }
+
     return (
-        <Col>            
-            <FontAwesome name="star"></FontAwesome>
-            <FontAwesome name="star"></FontAwesome>
+        <Col>
+            {stars}
         </Col>
     );
 }
