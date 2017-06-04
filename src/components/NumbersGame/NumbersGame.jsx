@@ -7,7 +7,7 @@ import 'bootstrap/dist/css/bootstrap.css';
 import 'font-awesome/css/font-awesome.css';
 
 function NumbersGame() {
-    const randomNumberOfStars = 1 + Math.floor(Math.random()*9);
+    const randomNumberOfStars = 1 + Math.floor(Math.random()*10);
 
     return (
         <Container>
@@ -24,12 +24,8 @@ function NumbersGame() {
 }
 
 function Stars(props) {
-    const numberOfStars = props.numberOfStars;
-    
-    let stars = [];    
-    for (let index = 0; index < numberOfStars; index++) {
-        stars.push(<FontAwesome name="star"></FontAwesome>);
-    }
+    let stars = [...Array(props.numberOfStars).keys()]
+                    .map(x => <FontAwesome name="star" key={x}></FontAwesome>);
 
     return (
         <Col>
