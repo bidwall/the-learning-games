@@ -5,6 +5,7 @@ import FontAwesome from 'react-fontawesome';
 
 import 'bootstrap/dist/css/bootstrap.css';
 import 'font-awesome/css/font-awesome.css';
+import './numbersGame.css';
 
 function NumbersGame() {
     const maxNumberOfStars = 10;
@@ -16,9 +17,9 @@ function NumbersGame() {
             <h4>Numbers</h4>
             <hr />
             <Row>
-                <Stars numberOfStars={randomNumberOfStars}></Stars>
-                <Selection maxSelection={maxNumberOfStars}></Selection>
+                <Stars numberOfStars={randomNumberOfStars}></Stars>                
                 <Control></Control>
+                <Selection maxSelection={maxNumberOfStars}></Selection>
             </Row>        
         </Container>        
     );
@@ -37,7 +38,8 @@ function Stars(props) {
 
 function Selection(props) {
     let selection = [...Array(props.maxSelection).keys()]
-                    .map(x => x +1);
+                    .map(x => <span className="selection" key={x+1}>{x+1}</span>);
+
     return (
         <Col>
             {selection}
