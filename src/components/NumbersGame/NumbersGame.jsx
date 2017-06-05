@@ -7,7 +7,8 @@ import 'bootstrap/dist/css/bootstrap.css';
 import 'font-awesome/css/font-awesome.css';
 
 function NumbersGame() {
-    const randomNumberOfStars = 1 + Math.floor(Math.random()*10);
+    const maxNumberOfStars = 10;
+    const randomNumberOfStars = 1 + Math.floor(Math.random() * maxNumberOfStars);
 
     return (
         <Container>
@@ -16,7 +17,7 @@ function NumbersGame() {
             <hr />
             <Row>
                 <Stars numberOfStars={randomNumberOfStars}></Stars>
-                <Selection></Selection>
+                <Selection maxSelection={maxNumberOfStars}></Selection>
                 <Control></Control>
             </Row>        
         </Container>        
@@ -34,10 +35,12 @@ function Stars(props) {
     );
 }
 
-function Selection() {
+function Selection(props) {
+    let selection = [...Array(props.maxSelection).keys()]
+                    .map(x => x +1);
     return (
         <Col>
-            <p>Selection</p>
+            {selection}
         </Col>
     );
 }
