@@ -31,6 +31,11 @@ class CountingGame extends React.Component {
         console.log(`The number ${number} is selected`);        
     }
 
+    checkAnswer = () => {
+        let result = this.state.selectedNumber === this.state.randomNumberOfStars ? "CORRECT" : "WRONG";
+        console.log(`The answer is ${result}`);
+    }
+
     render() {
         
         return(
@@ -40,7 +45,7 @@ class CountingGame extends React.Component {
                 <hr />
                 <Row>
                     <Stars numberOfStars={this.state.randomNumberOfStars}></Stars>
-                    <Controls redraw={this.redraw}></Controls>
+                    <Controls redraw={this.redraw} checkAnswer={this.checkAnswer}></Controls>
                     <Numbers maxNumber={this.props.maxNumber} selectedNumber={this.state.selectedNumber} selected={this.selected}></Numbers>
                 </Row>
             </Container>
@@ -62,7 +67,11 @@ function Stars(props) {
 function Controls(props) {
     return (
         <Col>
-            <Button color="info" onClick={props.redraw}>
+            <Button color="info" onClick={props.checkAnswer}>
+                <FontAwesome name="calculator"></FontAwesome>
+            </Button>
+            <br/>
+            <Button color="warning" onClick={props.redraw}>
                 <FontAwesome name="refresh"></FontAwesome>
             </Button>
         </Col>
