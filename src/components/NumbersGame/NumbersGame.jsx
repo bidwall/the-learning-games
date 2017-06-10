@@ -13,9 +13,9 @@ class NumbersGame extends React.Component {
     };
 
     redraw = (event) => {
-        this.setState({
+        this.setState(prevState => ({
             randomNumberOfStars: 1 + Math.floor(Math.random() * 10)
-        });
+        }));
     }
 
     render() {
@@ -27,10 +27,10 @@ class NumbersGame extends React.Component {
                 <h4>Numbers</h4>
                 <hr />
                 <Row>
-                    <Stars numberOfStars={this.state.randomNumberOfStars}></Stars>                
+                    <Stars numberOfStars={this.state.randomNumberOfStars}></Stars>
                     <Redraw redraw={this.redraw}></Redraw>
                     <Numbers maxSelection={maxNumberOfStars}></Numbers>
-                </Row>        
+                </Row>
             </Container>
         );
     };
