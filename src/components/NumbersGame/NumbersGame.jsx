@@ -40,7 +40,7 @@ class CountingGame extends React.Component {
                 <hr />
                 <Row>
                     <Stars numberOfStars={this.state.randomNumberOfStars}></Stars>
-                    <Redraw redraw={this.redraw}></Redraw>
+                    <Controls redraw={this.redraw}></Controls>
                     <Numbers maxNumber={this.props.maxNumber} selectedNumber={this.state.selectedNumber} selected={this.selected}></Numbers>
                 </Row>
             </Container>
@@ -59,7 +59,7 @@ function Stars(props) {
     );
 }
 
-function Redraw(props) {
+function Controls(props) {
     return (
         <Col>
             <Button color="info" onClick={props.redraw}>
