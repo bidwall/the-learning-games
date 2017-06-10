@@ -7,7 +7,7 @@ import 'bootstrap/dist/css/bootstrap.css';
 import 'font-awesome/css/font-awesome.css';
 import './numbersGame.css';
 
-class NumbersGame extends React.Component {
+class CountingGame extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -90,4 +90,4 @@ function Numbers(props) {
     );
 }
 
-export default NumbersGame;
+export default CountingGame;

@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import logo from '../logo.svg';
 import './App.css';
 
-import NumbersGame from './NumbersGame/NumbersGame';
+import CountingGame from './NumbersGame/NumbersGame';
 
 class App extends Component {
   render() {
@@ -12,7 +12,7 @@ class App extends Component {
           <img src={logo} className="App-logo" alt="logo" />
           <h2>The Learning Games</h2>                  
         </div>
-        <NumbersGame maxNumber={10}></NumbersGame>
+        <CountingGame maxNumber={10}></CountingGame>
       </div>
     );
   }
