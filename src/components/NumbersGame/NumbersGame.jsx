@@ -1,5 +1,5 @@
 import React from 'react';
-import { Container, Row, Col } from 'reactstrap';
+import { Button, Container, Row, Col } from 'reactstrap';
 
 import FontAwesome from 'react-fontawesome';
 
@@ -7,22 +7,33 @@ import 'bootstrap/dist/css/bootstrap.css';
 import 'font-awesome/css/font-awesome.css';
 import './numbersGame.css';
 
-function NumbersGame() {
-    const maxNumberOfStars = 10;
-    const randomNumberOfStars = 1 + Math.floor(Math.random() * maxNumberOfStars);
+class NumbersGame extends React.Component {
+    state = {
+        randomNumberOfStars: 1 + Math.floor(Math.random() * 10)
+    };
 
-    return (
-        <Container>
-            <br/>
-            <h4>Numbers</h4>
-            <hr />
-            <Row>
-                <Stars numberOfStars={randomNumberOfStars}></Stars>                
-                <Control></Control>
-                <Selection maxSelection={maxNumberOfStars}></Selection>
-            </Row>        
-        </Container>        
-    );
+    redraw = (event) => {
+        this.setState({
+            randomNumberOfStars: 1 + Math.floor(Math.random() * 10)
+        });
+    }
+
+    render() {
+        const maxNumberOfStars = 10;        
+
+        return(
+            <Container>
+                <br/>
+                <h4>Numbers</h4>
+                <hr />
+                <Row>
+                    <Stars numberOfStars={this.state.randomNumberOfStars}></Stars>                
+                    <Redraw redraw={this.redraw}></Redraw>
+                    <Numbers maxSelection={maxNumberOfStars}></Numbers>
+                </Row>        
+            </Container>
+        );
+    };
 }
 
 function Stars(props) {
@@ -36,21 +47,23 @@ function Stars(props) {
     );
 }
 
-function Selection(props) {
+function Redraw(props) {
+    return (
+        <Col>
+            <Button color="info" onClick={props.redraw}>
+                <FontAwesome name="refresh"></FontAwesome>
+            </Button>
+        </Col>
+    );
+}
+
+function Numbers(props) {
     let selection = [...Array(props.maxSelection).keys()]
                     .map(x => <span className="selection" key={x+1}>{x+1}</span>);
 
     return (
         <Col>
             {selection}
-        </Col>
-    );
-}
-
-function Control() {
-    return (
-        <Col>
-            <p>Control</p>
         </Col>
     );
 }
