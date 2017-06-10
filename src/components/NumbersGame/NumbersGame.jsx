@@ -8,18 +8,22 @@ import 'font-awesome/css/font-awesome.css';
 import './numbersGame.css';
 
 class NumbersGame extends React.Component {
-    state = {
-        randomNumberOfStars: 1 + Math.floor(Math.random() * 10)
-    };
+    constructor(props) {
+        super(props);
+        this.state = {
+                randomNumberOfStars: 1 + Math.floor(Math.random() * this.props.maxNumber)
+        };
+    }
+    
 
     redraw = (event) => {
         this.setState(prevState => ({
-            randomNumberOfStars: 1 + Math.floor(Math.random() * 10)
+            randomNumberOfStars: 1 + Math.floor(Math.random() * this.props.maxNumber)
         }));
     }
 
     render() {
-        const maxNumberOfStars = 10;        
+        
 
         return(
             <Container>
@@ -29,7 +33,7 @@ class NumbersGame extends React.Component {
                 <Row>
                     <Stars numberOfStars={this.state.randomNumberOfStars}></Stars>
                     <Redraw redraw={this.redraw}></Redraw>
-                    <Numbers maxSelection={maxNumberOfStars}></Numbers>
+                    <Numbers maxNumber={this.props.maxNumber}></Numbers>
                 </Row>
             </Container>
         );
@@ -58,7 +62,7 @@ function Redraw(props) {
 }
 
 function Numbers(props) {
-    let selection = [...Array(props.maxSelection).keys()]
+    let selection = [...Array(props.maxNumber).keys()]
                     .map(x => <span className="selection" key={x+1}>{x+1}</span>);
 
     return (

@@ -4,8 +4,6 @@ import './App.css';
 
 import NumbersGame from './NumbersGame/NumbersGame';
 
-
-
 class App extends Component {
   render() {
     return (
@@ -14,7 +12,7 @@ class App extends Component {
           <img src={logo} className="App-logo" alt="logo" />
           <h2>The Learning Games</h2>                  
         </div>
-        <NumbersGame></NumbersGame>
+        <NumbersGame maxNumber={10}></NumbersGame>
       </div>
     );
   }
