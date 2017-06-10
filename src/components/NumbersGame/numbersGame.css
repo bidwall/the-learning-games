@@ -3,7 +3,17 @@
     font-size: 24px;
 }
 
-.selection {
+.selectable {
+    display: inline-block;
+    margin: 0.5em;
+    text-align: center;
+    background-color: lightblue;
+    width: 24px;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.selectable {
     display: inline-block;
     margin: 0.5em;
     text-align: center;

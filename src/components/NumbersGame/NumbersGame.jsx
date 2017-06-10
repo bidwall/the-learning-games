@@ -11,20 +11,28 @@ class NumbersGame extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-                randomNumberOfStars: 1 + Math.floor(Math.random() * this.props.maxNumber)
+                randomNumberOfStars: 1 + Math.floor(Math.random() * this.props.maxNumber),
+                selectedNumber: 0
         };
     }
     
-
-    redraw = (event) => {
+    redraw = () => {
         this.setState(prevState => ({
-            randomNumberOfStars: 1 + Math.floor(Math.random() * this.props.maxNumber)
+            randomNumberOfStars: 1 + Math.floor(Math.random() * this.props.maxNumber),
+            selectedNumber: 0
         }));
+    }
+
+    selected = (number) => {        
+        this.setState(prevState => ({
+            selectedNumber: number
+        }));
+
+        console.log(`The number ${number} is selected`);        
     }
 
     render() {
         
-
         return(
             <Container>
                 <br/>
@@ -33,7 +41,7 @@ class NumbersGame extends React.Component {
                 <Row>
                     <Stars numberOfStars={this.state.randomNumberOfStars}></Stars>
                     <Redraw redraw={this.redraw}></Redraw>
-                    <Numbers maxNumber={this.props.maxNumber}></Numbers>
+                    <Numbers maxNumber={this.props.maxNumber} selectedNumber={this.state.selectedNumber} selected={this.selected}></Numbers>
                 </Row>
             </Container>
         );
@@ -62,8 +70,18 @@ function Redraw(props) {
 }
 
 function Numbers(props) {
+    const isActive = (number) => {
+        return props.selectedNumber === number;
+    };
+    
     let selection = [...Array(props.maxNumber).keys()]
-                    .map(x => <span className="selection" key={x+1}>{x+1}</span>);
+                    .map(x => <Button  key={x+1} 
+                                    outline color="info"
+                                    active={isActive(x+1)}
+                                    onClick={() => props.selected(x+1)}>
+                                {x+1}
+                              </Button>
+                        );
 
     return (
         <Col>
