@@ -5,7 +5,7 @@ import FontAwesome from 'react-fontawesome';
 
 import 'bootstrap/dist/css/bootstrap.css';
 import 'font-awesome/css/font-awesome.css';
-import './numbersGame.css';
+import './countingGame.css';
 
 class CountingGame extends React.Component {
     constructor(props) {

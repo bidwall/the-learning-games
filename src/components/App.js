@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import logo from '../logo.svg';
 import './App.css';
 
-import CountingGame from './NumbersGame/NumbersGame';
+import CountingGame from './Counting/CountingGame';
 
 class App extends Component {
   render() {
