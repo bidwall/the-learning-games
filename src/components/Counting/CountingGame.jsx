@@ -13,7 +13,7 @@ class CountingGame extends React.Component {
         this.state = {
                 randomNumberOfStars: 1 + Math.floor(Math.random() * this.props.maxNumber),
                 selectedNumber: 0,
-                answerStatus: ANSWERSTATUS.NONE
+                answerStatus: AnswerStatus.NONE
         };
     }
     
@@ -21,14 +21,14 @@ class CountingGame extends React.Component {
         this.setState(prevState => ({
             randomNumberOfStars: 1 + Math.floor(Math.random() * this.props.maxNumber),
             selectedNumber: 0,
-            answerStatus: ANSWERSTATUS.NONE
+            answerStatus: AnswerStatus.NONE
         }));
     }
 
     selected = (number) => {        
         this.setState(prevState => ({
             selectedNumber: number,
-            answerStatus: ANSWERSTATUS.NONE
+            answerStatus: AnswerStatus.NONE
         }));
 
         console.log(`The number ${number} is selected`);        
@@ -36,12 +36,11 @@ class CountingGame extends React.Component {
 
     checkAnswer = () => {
         this.setState(prevState => ({
-            answerStatus: this.state.selectedNumber === this.state.randomNumberOfStars ? ANSWERSTATUS.CORRECT : ANSWERSTATUS.WRONG
+            answerStatus: this.state.selectedNumber === this.state.randomNumberOfStars ? AnswerStatus.CORRECT : AnswerStatus.WRONG
         }));
     }
 
-    render() {
-        
+    render() {        
         return(
             <Container>
                 <br/>
@@ -68,8 +67,7 @@ function Stars(props) {
     );
 }
 
-
-const ANSWERSTATUS = {
+const AnswerStatus = {
     NONE: 0,
     CORRECT: 1,
     WRONG: 2
