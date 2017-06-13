@@ -12,28 +12,32 @@ class CountingGame extends React.Component {
         super(props);
         this.state = {
                 randomNumberOfStars: 1 + Math.floor(Math.random() * this.props.maxNumber),
-                selectedNumber: 0
+                selectedNumber: 0,
+                answerStatus: ANSWERSTATUS.NONE
         };
     }
     
     redraw = () => {
         this.setState(prevState => ({
             randomNumberOfStars: 1 + Math.floor(Math.random() * this.props.maxNumber),
-            selectedNumber: 0
+            selectedNumber: 0,
+            answerStatus: ANSWERSTATUS.NONE
         }));
     }
 
     selected = (number) => {        
         this.setState(prevState => ({
-            selectedNumber: number
+            selectedNumber: number,
+            answerStatus: ANSWERSTATUS.NONE
         }));
 
         console.log(`The number ${number} is selected`);        
     }
 
     checkAnswer = () => {
-        let result = this.state.selectedNumber === this.state.randomNumberOfStars ? "CORRECT" : "WRONG";
-        console.log(`The answer is ${result}`);
+        this.setState(prevState => ({
+            answerStatus: this.state.selectedNumber === this.state.randomNumberOfStars ? ANSWERSTATUS.CORRECT : ANSWERSTATUS.WRONG
+        }));
     }
 
     render() {
@@ -45,7 +49,7 @@ class CountingGame extends React.Component {
                 <hr />
                 <Row>
                     <Stars numberOfStars={this.state.randomNumberOfStars}></Stars>
-                    <Controls redraw={this.redraw} checkAnswer={this.checkAnswer}></Controls>
+                    <Controls redraw={this.redraw} checkAnswer={this.checkAnswer} answerStatus={this.state.answerStatus}></Controls>
                     <Numbers maxNumber={this.props.maxNumber} selectedNumber={this.state.selectedNumber} selected={this.selected}></Numbers>
                 </Row>
             </Container>
@@ -62,6 +66,13 @@ function Stars(props) {
             {stars}
         </Col>
     );
+}
+
+
+const ANSWERSTATUS = {
+    NONE: 0,
+    CORRECT: 1,
+    WRONG: 2
 }
 
 function Controls(props) {
