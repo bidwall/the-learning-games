@@ -27,8 +27,7 @@ class CountingGame extends React.Component {
 
     selected = (number) => {        
         this.setState(prevState => ({
-            selectedNumber: number,
-            answerStatus: AnswerStatus.NONE
+            selectedNumber: number
         }));
 
         console.log(`The number ${number} is selected`);        
@@ -74,12 +73,32 @@ const AnswerStatus = {
 }
 
 function Controls(props) {
+    const getCheckAnswerButton = () => {
+        console.log(props.answerStatus);
+        switch (props.answerStatus) {
+            case AnswerStatus.CORRECT: return (
+                <Button color="success">
+                    <FontAwesome name="check"></FontAwesome>
+                </Button>
+                );                
+            case AnswerStatus.WRONG: return (
+                <Button color="danger">
+                    <FontAwesome name="times"></FontAwesome>
+                </Button>
+                );
+            case AnswerStatus.NONE:
+            default: return (
+                <Button color="info" onClick={props.checkAnswer}>
+                    <FontAwesome name="calculator"></FontAwesome>
+                </Button>
+                );
+        }
+    }
+
     return (
         <Col>
-            <Button color="info" onClick={props.checkAnswer}>
-                <FontAwesome name="calculator"></FontAwesome>
-            </Button>
-            <br/>
+            {getCheckAnswerButton()}
+            <br/><br/>
             <Button color="warning" onClick={props.redraw}>
                 <FontAwesome name="refresh"></FontAwesome>
             </Button>
