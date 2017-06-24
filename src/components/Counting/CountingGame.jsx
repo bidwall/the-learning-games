@@ -29,8 +29,6 @@ class CountingGame extends React.Component {
         this.setState(prevState => ({
             selectedNumber: number
         }));
-
-        console.log(`The number ${number} is selected`);        
     }
 
     checkAnswer = () => {        
@@ -47,7 +45,7 @@ class CountingGame extends React.Component {
                 <hr />
                 <Row>
                     <Stars numberOfStars={this.state.randomNumberOfStars}></Stars>
-                    <Controls redraw={this.redraw} checkAnswer={this.checkAnswer} answerStatus={this.state.answerStatus}></Controls>
+                    <Controls redraw={this.redraw} checkAnswer={this.checkAnswer} answerStatus={this.state.answerStatus} selectedNumber={this.state.selectedNumber}></Controls>
                     <Numbers maxNumber={this.props.maxNumber} selectedNumber={this.state.selectedNumber} selected={this.selected}></Numbers>
                 </Row>
             </Container>
@@ -74,7 +72,8 @@ const AnswerStatus = {
 
 function Controls(props) {
     const getCheckAnswerButton = () => {
-        console.log(props.answerStatus);
+        let isDisabled = props.selectedNumber === 0;
+
         switch (props.answerStatus) {
             case AnswerStatus.CORRECT: return (
                 <Button color="success">
@@ -88,7 +87,7 @@ function Controls(props) {
                 );
             case AnswerStatus.NONE:
             default: return (
-                <Button color="info" onClick={props.checkAnswer}>
+                <Button color="info" onClick={props.checkAnswer} disabled={isDisabled}>
                     <FontAwesome name="calculator"></FontAwesome>
                 </Button>
                 );
