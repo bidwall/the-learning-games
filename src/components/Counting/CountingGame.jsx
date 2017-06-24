@@ -33,7 +33,7 @@ class CountingGame extends React.Component {
         console.log(`The number ${number} is selected`);        
     }
 
-    checkAnswer = () => {
+    checkAnswer = () => {        
         this.setState(prevState => ({
             answerStatus: this.state.selectedNumber === this.state.randomNumberOfStars ? AnswerStatus.CORRECT : AnswerStatus.WRONG
         }));
@@ -82,7 +82,7 @@ function Controls(props) {
                 </Button>
                 );                
             case AnswerStatus.WRONG: return (
-                <Button color="danger">
+                <Button color="danger"  onClick={props.checkAnswer}>
                     <FontAwesome name="times"></FontAwesome>
                 </Button>
                 );
