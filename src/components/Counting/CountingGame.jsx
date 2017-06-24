@@ -3,6 +3,7 @@ import { Button, Container, Row, Col } from 'reactstrap';
 import FontAwesome from 'react-fontawesome';
 import Numbers from './Numbers/Numbers.jsx';
 import Controls from './Controls/Controls.jsx';
+import Stars from './Stars/Stars.jsx';
 import AnswerStatus from './answerStatus.js';
 
 import 'bootstrap/dist/css/bootstrap.css';
@@ -53,17 +54,6 @@ class CountingGame extends React.Component {
             </Container>
         );
     };
-}
-
-function Stars(props) {
-    let stars = [...Array(props.numberOfStars).keys()]
-                    .map(x => <FontAwesome name="star" key={x}></FontAwesome>);
-
-    return (
-        <Col>
-            {stars}
-        </Col>
-    );
 }
 
 export default CountingGame;
