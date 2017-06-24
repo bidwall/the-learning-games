@@ -1,7 +1,8 @@
 import React from 'react';
 import { Button, Container, Row, Col } from 'reactstrap';
 import FontAwesome from 'react-fontawesome';
-import Numbers from './Numbers/Numbers.jsx'
+import Numbers from './Numbers/Numbers.jsx';
+import AnswerStatus from './answerStatus.js';
 
 import 'bootstrap/dist/css/bootstrap.css';
 import 'font-awesome/css/font-awesome.css';
@@ -62,12 +63,6 @@ function Stars(props) {
             {stars}
         </Col>
     );
-}
-
-const AnswerStatus = {
-    NONE: 0,
-    CORRECT: 1,
-    WRONG: 2
 }
 
 function Controls(props) {
