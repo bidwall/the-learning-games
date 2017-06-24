@@ -1,6 +1,6 @@
 import React from 'react';
-import { Button, Container, Row, Col } from 'reactstrap';
-import FontAwesome from 'react-fontawesome';
+import { Container, Row } from 'reactstrap';
+
 import Numbers from './Numbers/Numbers.jsx';
 import Controls from './Controls/Controls.jsx';
 import Stars from './Stars/Stars.jsx';
@@ -8,7 +8,6 @@ import AnswerStatus from './answerStatus.js';
 
 import 'bootstrap/dist/css/bootstrap.css';
 import 'font-awesome/css/font-awesome.css';
-import './countingGame.css';
 
 class CountingGame extends React.Component {
     constructor(props) {
