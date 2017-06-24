@@ -1,7 +1,7 @@
 import React from 'react';
 import { Button, Container, Row, Col } from 'reactstrap';
-
 import FontAwesome from 'react-fontawesome';
+import Numbers from './Numbers/Numbers.jsx'
 
 import 'bootstrap/dist/css/bootstrap.css';
 import 'font-awesome/css/font-awesome.css';
@@ -101,27 +101,6 @@ function Controls(props) {
             <Button color="warning" onClick={props.redraw}>
                 <FontAwesome name="refresh"></FontAwesome>
             </Button>
-        </Col>
-    );
-}
-
-function Numbers(props) {
-    const isActive = (number) => {
-        return props.selectedNumber === number;
-    };
-    
-    let selection = [...Array(props.maxNumber).keys()]
-                    .map(x => <Button  key={x+1} 
-                                    outline color="info"
-                                    active={isActive(x+1)}
-                                    onClick={() => props.selected(x+1)}>
-                                {x+1}
-                              </Button>
-                        );
-
-    return (
-        <Col>
-            {selection}
         </Col>
     );
 }
