@@ -2,6 +2,7 @@ import React from 'react';
 import { Button, Container, Row, Col } from 'reactstrap';
 import FontAwesome from 'react-fontawesome';
 import Numbers from './Numbers/Numbers.jsx';
+import Controls from './Controls/Controls.jsx';
 import AnswerStatus from './answerStatus.js';
 
 import 'bootstrap/dist/css/bootstrap.css';
@@ -61,41 +62,6 @@ function Stars(props) {
     return (
         <Col>
             {stars}
-        </Col>
-    );
-}
-
-function Controls(props) {
-    const getCheckAnswerButton = () => {
-        let isDisabled = props.selectedNumber === 0;
-
-        switch (props.answerStatus) {
-            case AnswerStatus.CORRECT: return (
-                <Button color="success">
-                    <FontAwesome name="check"></FontAwesome>
-                </Button>
-                );                
-            case AnswerStatus.WRONG: return (
-                <Button color="danger"  onClick={props.checkAnswer}>
-                    <FontAwesome name="times"></FontAwesome>
-                </Button>
-                );
-            case AnswerStatus.NONE:
-            default: return (
-                <Button color="info" onClick={props.checkAnswer} disabled={isDisabled}>
-                    <FontAwesome name="calculator"></FontAwesome>
-                </Button>
-                );
-        }
-    }
-
-    return (
-        <Col>
-            {getCheckAnswerButton()}
-            <br/><br/>
-            <Button color="warning" onClick={props.redraw}>
-                <FontAwesome name="refresh"></FontAwesome>
-            </Button>
         </Col>
     );
 }
