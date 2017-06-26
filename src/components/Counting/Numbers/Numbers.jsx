@@ -6,14 +6,12 @@ function Numbers(props) {
         return props.selectedNumber === number;
     };
     
+    const NumberButton = (number) => {
+        <Button  key={number} outline color="info" active={isActive(number)} onClick={() => props.selected(number)}>number</Button>
+    };
+
     let selection = [...Array(props.maxNumber).keys()]
-                    .map(x => <Button  key={x+1} 
-                                    outline color="info"
-                                    active={isActive(x+1)}
-                                    onClick={() => props.selected(x+1)}>
-                                {x+1}
-                              </Button>
-                        );
+                    .map(x => <NumberButton item={x+1} />);
 
     return (
         <Col>
