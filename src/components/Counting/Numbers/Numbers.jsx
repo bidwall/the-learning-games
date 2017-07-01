@@ -1,6 +1,10 @@
 import React from 'react';
 import { Button, Col } from 'reactstrap';
 
+const buttonStyle = {
+    margin : '10px'
+};
+
 function Numbers(props) {
     const isActive = (number) => {
         return props.selectedNumber === number;
@@ -11,7 +15,8 @@ function Numbers(props) {
         <Button key={number}
                 outline color="info"
                 active={isActive(number)}
-                onClick={() => props.selected(number)}>
+                onClick={() => props.selected(number)}
+                style={buttonStyle}>
             {number}
         </Button>);
     };
