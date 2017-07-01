@@ -20,8 +20,8 @@ class CountingGame extends React.Component {
     }
     
     redraw = () => {
-        this.setState(prevState => ({
-            randomNumberOfStars: 1 + Math.floor(Math.random() * this.props.maxNumber),
+        this.setState((prevState, props) => ({
+            randomNumberOfStars: 1 + Math.floor(Math.random() * props.maxNumber),
             selectedNumber: 0,
             answerStatus: AnswerStatus.NONE
         }));
@@ -35,7 +35,7 @@ class CountingGame extends React.Component {
 
     checkAnswer = () => {        
         this.setState(prevState => ({
-            answerStatus: this.state.selectedNumber === this.state.randomNumberOfStars ? AnswerStatus.CORRECT : AnswerStatus.WRONG
+            answerStatus: prevState.selectedNumber === prevState.randomNumberOfStars ? AnswerStatus.CORRECT : AnswerStatus.WRONG
         }));
     }
 
