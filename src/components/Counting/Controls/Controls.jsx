@@ -1,7 +1,13 @@
 import React from 'react';
-import { Button, Col } from 'reactstrap';
+import { Button, Col, Row } from 'reactstrap';
 import FontAwesome from 'react-fontawesome';
 import AnswerStatus from '../answerStatus.js';
+
+const controlsStyle = {
+    position: 'relative',
+    top: '40%',
+    transform: 'translateY(-50%)'
+};
 
 function Controls(props) {
     const getCheckAnswerButton = () => {
@@ -29,11 +35,13 @@ function Controls(props) {
 
     return (
         <Col>
-            {getCheckAnswerButton()}
-            <br/><br/>
-            <Button color="warning" onClick={props.redraw}>
-                <FontAwesome name="refresh"></FontAwesome>
-            </Button>
+            <div style={controlsStyle}>
+                {getCheckAnswerButton()}
+                <br/><br/>
+                <Button color="warning" onClick={props.redraw}>
+                    <FontAwesome name="refresh"></FontAwesome>
+                </Button>
+            </div>
         </Col>
     );
 }
