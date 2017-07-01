@@ -9,7 +9,7 @@ This simple game is designed to help kids practice on their counting skills. Cou
 May the odds be ever in your favour :trollface:
 
 ## Technology
-The uses the following technology...
+This uses the following technology...
 - React
 - ES6/ES2015
 - Babel
