@@ -4,7 +4,7 @@ import FontAwesome from 'react-fontawesome';
 
 const starStyle = {
     margin: '0.5em',
-    'font-size': '28px'
+    'fontSize': '28px'
 };
 
 function Stars(props) {
