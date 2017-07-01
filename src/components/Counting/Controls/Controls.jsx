@@ -1,5 +1,5 @@
 import React from 'react';
-import { Button, Col, Row } from 'reactstrap';
+import { Button, Col } from 'reactstrap';
 import FontAwesome from 'react-fontawesome';
 import AnswerStatus from '../answerStatus.js';
 
