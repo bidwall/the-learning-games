@@ -1,4 +1,4 @@
-[![Build Status](https://travis-ci.org/bidwall/the-learning-games.svg?branch=travisci)](https://travis-ci.org/bidwall/the-learning-games)
+[![Build Status](https://travis-ci.org/bidwall/the-learning-games.svg?branch=master)](https://travis-ci.org/bidwall/the-learning-games)
 
 # The Learning Games
 Learning never stops and starts at the very beginning. The learning games is a series of games, aimed at young kids, designed to help with the fundamental skills in life.
