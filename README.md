@@ -1,4 +1,3 @@
-[![CircleCI](https://circleci.com/gh/bidwall/the-learning-games.svg?style=shield)](https://circleci.com/gh/bidwall/the-learning-games)
 [![Build Status](https://travis-ci.org/bidwall/the-learning-games.svg?branch=travisci)](https://travis-ci.org/bidwall/the-learning-games)
 
 # The Learning Games
