@@ -13,6 +13,6 @@ deploy:
   secret_access_key: $AWS_SECRET_ACCESS_KEY
   bucket: $AWS_BUCKET_NAME  
   skip_cleanup: true
-  region: eu-west-2
+  region: $AWS_DEFAULT_REGION
   local_dir: build
   cache_control: "max-age=21600"
