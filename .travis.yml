@@ -6,13 +6,12 @@ cache:
   directories:
     - node_modules
 deploy:
-  on:
-    branch: continuous-delivery
   provider: s3
   access_key_id: $AWS_ACCESS_KEY_ID
   secret_access_key: $AWS_SECRET_ACCESS_KEY
-  bucket: $AWS_BUCKET_NAME  
-  skip_cleanup: true
+  bucket: $AWS_BUCKET_NAME    
   region: $AWS_DEFAULT_REGION
   local_dir: build
-  cache_control: "max-age=21600"
+  skip_cleanup: true
+  on:
+    branch: continuous-delivery
